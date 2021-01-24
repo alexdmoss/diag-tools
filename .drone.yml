@@ -1,0 +1,16 @@
+---
+kind: pipeline
+name: diag-tools
+
+steps:
+- name: build  
+  image: plugins/docker
+  settings:
+    username: mosstech
+    password:
+      from_secret: DOCKER_REGISTRY_PASS
+    repo: mosstech/diag-tools
+    auto_tag: true
+  when:
+    event: push
+    branch: main
